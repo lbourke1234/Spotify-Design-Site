@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Card, Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import FirstSectionCard from './FirstSectionCard'
 
 const FirstSectionRow2 = (search, title) => {
@@ -7,6 +7,7 @@ const FirstSectionRow2 = (search, title) => {
 
   useEffect(() => {
     fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const fetchData = async () => {

@@ -1,6 +1,6 @@
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Form } from 'react-bootstrap'
 
-const NavBar = () => {
+const NavBar = ({ setFormValue }) => {
   return (
     <Container className="p-3">
       <Row>
@@ -8,6 +8,14 @@ const NavBar = () => {
           <i className="arrow1 bi bi-chevron-left text-white"></i>
           <i className="arrow2 bi bi-chevron-right text-white"></i>
         </div>
+        <Form
+          className="search-form"
+          onChange={(e) => setFormValue(e.target.value)}
+        >
+          <Form.Group controlId="formBasicEmail">
+            <Form.Control type="text" placeholder="Search here" />
+          </Form.Group>
+        </Form>
         <div className="navbar-col profile-picture-button">
           <div className="profile-picture-dropdown d-flex">
             <img

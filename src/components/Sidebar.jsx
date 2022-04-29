@@ -1,18 +1,30 @@
+import { Link } from 'react-router-dom'
+
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <img src="./img/Spotify_Logo_CMYK_White.png" height="38" alt="..." />
+      <img
+        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcollegian.com%2Fwp-content%2Fuploads%2F2017%2F08%2Fspotify-1759471_1280.jpg&f=1&nofb=1"
+        height="38"
+        alt="..."
+      />
 
       <div className="d-flex flex-column">
-        <div className="mt-4">
-          <i className="bi bi-house-fill mr-3"></i> <span>Home</span>
-        </div>
-        <div className="mt-2">
-          <i className="bi bi-search mr-3"></i> <span>Search</span>
-        </div>
-        <div className="mt-2">
-          <i className="bi bi-collection-fill mr-3"></i> <span>Library</span>
-        </div>
+        <Link to={'/'}>
+          <div className="mt-4">
+            <i className="bi bi-house-fill mr-3"></i> <span>Home</span>
+          </div>
+        </Link>
+        <Link to={'/albumPage'}>
+          <div className="mt-2">
+            <i className="bi bi-search mr-3"></i> <span>Search</span>
+          </div>
+        </Link>
+        <Link to={'/artistPage'}>
+          <div className="mt-2">
+            <i className="bi bi-collection-fill mr-3"></i> <span>Library</span>
+          </div>
+        </Link>
         <div className="mt-5 create">
           <i className="bi bi-plus-lg mr-3"></i> <span>Create Playlist</span>
         </div>

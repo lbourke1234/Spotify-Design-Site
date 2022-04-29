@@ -2,7 +2,7 @@ import { Row, Container, Button, Col } from 'react-bootstrap'
 import SecondSectionCard from './SecondSectionCard'
 import { useEffect, useState } from 'react'
 
-const SecondSection = ({ title, search }) => {
+const SecondSection = ({ title, search, formValue }) => {
   const [result, setResult] = useState([])
 
   useEffect(() => {
@@ -10,8 +10,31 @@ const SecondSection = ({ title, search }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   useEffect(() => {
-    console.log(result)
+    // console.log(result)
   }, [result])
+  useEffect(() => {
+    if (formValue.length > 2) {
+      updateFetch()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formValue])
+
+  const updateFetch = async () => {
+    try {
+      const response = await fetch(
+        'https://striveschool-api.herokuapp.com/api/deezer/search?q=' +
+          formValue
+      )
+      if (response.ok) {
+        const data = await response.json()
+        setResult(data.data)
+      } else {
+        console.log('problem fetching')
+      }
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
 
   const fetchData = async () => {
     try {

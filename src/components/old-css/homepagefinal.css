@@ -574,3 +574,7 @@ body > footer > div > div > div:nth-child(1) > div > div:nth-child(1) {
     height: 52px;
   }
 }
+.search-form {
+  position: absolute;
+  right: 400px;
+}

@@ -19,22 +19,22 @@ const SecondSection = ({ title, search, formValue }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [formValue])
 
-  const updateFetch = async () => {
-    try {
-      const response = await fetch(
-        'https://striveschool-api.herokuapp.com/api/deezer/search?q=' +
-          formValue
-      )
-      if (response.ok) {
-        const data = await response.json()
-        setResult(data.data)
-      } else {
-        console.log('problem fetching')
-      }
-    } catch (error) {
-      console.log('error', error)
-    }
-  }
+  // const updateFetch = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       'https://striveschool-api.herokuapp.com/api/deezer/search?q=' +
+  //         formValue
+  //     )
+  //     if (response.ok) {
+  //       const data = await response.json()
+  //       setResult(data.data)
+  //     } else {
+  //       console.log('problem fetching')
+  //     }
+  //   } catch (error) {
+  //     console.log('error', error)
+  //   }
+  // }
 
   const fetchData = async () => {
     try {

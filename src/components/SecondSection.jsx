@@ -1,12 +1,39 @@
-import { Row, Container, Button, Col, Card } from 'react-bootstrap'
+import { Row, Container, Button, Col } from 'react-bootstrap'
+import SecondSectionCard from './SecondSectionCard'
+import { useEffect, useState } from 'react'
 
-const SecondSection = () => {
+const SecondSection = ({ title, search }) => {
+  const [result, setResult] = useState([])
+
+  useEffect(() => {
+    fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  useEffect(() => {
+    console.log(result)
+  }, [result])
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        'https://striveschool-api.herokuapp.com/api/deezer/search?q=' + search
+      )
+      if (response.ok) {
+        const data = await response.json()
+        setResult(data.data)
+      } else {
+        console.log('problem fetching')
+      }
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
   return (
     <>
       <Container fluid>
         <Row>
           <Col md={6}>
-            <h3 className="text-white mt-4 mb-4">Recently played</h3>
+            <h3 className="text-white mt-4 mb-4">{title}</h3>
           </Col>
           <Col md={6} className="see-all-btn-col">
             <Button type="button" className="btn btn-primary see-all-btn">
@@ -18,166 +45,9 @@ const SecondSection = () => {
 
       <Container fluid>
         <Row>
-          <Col>
-            <Card className="second-section-card">
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FOz8AAOSwnIleltAL%2Fs-l640.jpg&f=1&nofb=1"
-                class="card-img-top img-second-section"
-                alt="..."
-              />
-              <Card.Body className="card-body card-body-section2">
-                <h5 className="card-title">Burning Jazz-rock Fusion</h5>
-                <p className="card-text">
-                  You'll find fiery, modern, groovy, jazzy music here. Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. In
-                  aspernatur, nesciunt asperiores accusantium animi
-                  reprehenderit, quasi quia officiis sunt hic beatae,
-                  necessitatibus ducimus sed? Eaque atque quaerat dignissimos
-                  assumenda corporis!
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className="second-section-card">
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FOz8AAOSwnIleltAL%2Fs-l640.jpg&f=1&nofb=1"
-                class="card-img-top img-second-section"
-                alt="..."
-              />
-              <Card.Body className="card-body card-body-section2">
-                <h5 className="card-title">Burning Jazz-rock Fusion</h5>
-                <p className="card-text">
-                  You'll find fiery, modern, groovy, jazzy music here. Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. In
-                  aspernatur, nesciunt asperiores accusantium animi
-                  reprehenderit, quasi quia officiis sunt hic beatae,
-                  necessitatibus ducimus sed? Eaque atque quaerat dignissimos
-                  assumenda corporis!
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className="second-section-card">
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FOz8AAOSwnIleltAL%2Fs-l640.jpg&f=1&nofb=1"
-                class="card-img-top img-second-section"
-                alt="..."
-              />
-              <Card.Body className="card-body card-body-section2">
-                <h5 className="card-title">Burning Jazz-rock Fusion</h5>
-                <p className="card-text">
-                  You'll find fiery, modern, groovy, jazzy music here. Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. In
-                  aspernatur, nesciunt asperiores accusantium animi
-                  reprehenderit, quasi quia officiis sunt hic beatae,
-                  necessitatibus ducimus sed? Eaque atque quaerat dignissimos
-                  assumenda corporis!
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className="second-section-card">
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FOz8AAOSwnIleltAL%2Fs-l640.jpg&f=1&nofb=1"
-                class="card-img-top img-second-section"
-                alt="..."
-              />
-              <Card.Body className="card-body card-body-section2">
-                <h5 className="card-title">Burning Jazz-rock Fusion</h5>
-                <p className="card-text">
-                  You'll find fiery, modern, groovy, jazzy music here. Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. In
-                  aspernatur, nesciunt asperiores accusantium animi
-                  reprehenderit, quasi quia officiis sunt hic beatae,
-                  necessitatibus ducimus sed? Eaque atque quaerat dignissimos
-                  assumenda corporis!
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className="second-section-card">
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FOz8AAOSwnIleltAL%2Fs-l640.jpg&f=1&nofb=1"
-                class="card-img-top img-second-section"
-                alt="..."
-              />
-              <Card.Body className="card-body card-body-section2">
-                <h5 className="card-title">Burning Jazz-rock Fusion</h5>
-                <p className="card-text">
-                  You'll find fiery, modern, groovy, jazzy music here. Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. In
-                  aspernatur, nesciunt asperiores accusantium animi
-                  reprehenderit, quasi quia officiis sunt hic beatae,
-                  necessitatibus ducimus sed? Eaque atque quaerat dignissimos
-                  assumenda corporis!
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className="second-section-card">
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FOz8AAOSwnIleltAL%2Fs-l640.jpg&f=1&nofb=1"
-                class="card-img-top img-second-section"
-                alt="..."
-              />
-              <Card.Body className="card-body card-body-section2">
-                <h5 className="card-title">Burning Jazz-rock Fusion</h5>
-                <p className="card-text">
-                  You'll find fiery, modern, groovy, jazzy music here. Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. In
-                  aspernatur, nesciunt asperiores accusantium animi
-                  reprehenderit, quasi quia officiis sunt hic beatae,
-                  necessitatibus ducimus sed? Eaque atque quaerat dignissimos
-                  assumenda corporis!
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className="second-section-card">
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FOz8AAOSwnIleltAL%2Fs-l640.jpg&f=1&nofb=1"
-                class="card-img-top img-second-section"
-                alt="..."
-              />
-              <Card.Body className="card-body card-body-section2">
-                <h5 className="card-title">Burning Jazz-rock Fusion</h5>
-                <p className="card-text">
-                  You'll find fiery, modern, groovy, jazzy music here. Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. In
-                  aspernatur, nesciunt asperiores accusantium animi
-                  reprehenderit, quasi quia officiis sunt hic beatae,
-                  necessitatibus ducimus sed? Eaque atque quaerat dignissimos
-                  assumenda corporis!
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className="second-section-card">
-              <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ebayimg.com%2Fimages%2Fg%2FOz8AAOSwnIleltAL%2Fs-l640.jpg&f=1&nofb=1"
-                class="card-img-top img-second-section"
-                alt="..."
-              />
-              <Card.Body className="card-body card-body-section2">
-                <h5 className="card-title">Burning Jazz-rock Fusion</h5>
-                <p className="card-text">
-                  You'll find fiery, modern, groovy, jazzy music here. Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. In
-                  aspernatur, nesciunt asperiores accusantium animi
-                  reprehenderit, quasi quia officiis sunt hic beatae,
-                  necessitatibus ducimus sed? Eaque atque quaerat dignissimos
-                  assumenda corporis!
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
+          {result.slice(0, 8).map((song) => (
+            <SecondSectionCard song={song} />
+          ))}
         </Row>
       </Container>
     </>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import FirstSectionCard from './FirstSectionCard'
 
-const FirstSection = (search, title) => {
+const FirstSectionRow2 = (search, title) => {
   const [artist, setArtist] = useState([])
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const FirstSection = (search, title) => {
 
   const fetchData = async () => {
     const response = await fetch(
-      'https://striveschool-api.herokuapp.com/api/deezer/search?q=money'
+      'https://striveschool-api.herokuapp.com/api/deezer/search?q=rap'
     )
     if (response.ok) {
       const data = await response.json()
@@ -22,11 +22,6 @@ const FirstSection = (search, title) => {
 
   return (
     <Container fluid className="first-section">
-      <Row>
-        <Col>
-          <h2 className="text-white mt-5 mb-4">Good morning</h2>
-        </Col>
-      </Row>
       <Row>
         {artist.slice(0, 6).map((song) => (
           <Col>
@@ -39,4 +34,4 @@ const FirstSection = (search, title) => {
   )
 }
 
-export default FirstSection
+export default FirstSectionRow2

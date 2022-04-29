@@ -12,12 +12,12 @@ const SecondSection = ({ title, search, formValue }) => {
   useEffect(() => {
     // console.log(result)
   }, [result])
-  useEffect(() => {
-    if (formValue.length > 2) {
-      updateFetch()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formValue])
+  // useEffect(() => {
+  //   if (formValue.length > 2) {
+  //     updateFetch()
+  //   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [formValue])
 
   const updateFetch = async () => {
     try {

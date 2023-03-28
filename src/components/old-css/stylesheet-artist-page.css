@@ -57,7 +57,7 @@ th {
 }
 
 .jumbotron {
-  background-image: url(https://whiplash.net/imagens_promo/queen_bohemian.jpg);
+  background-image: url(https://th.bing.com/th/id/OIP.kyRtBxO2ltLH_6MfdpCAFgHaEK?pid=ImgDet&rs=1);
   min-height: 100px;
   margin-bottom: 0;
   padding-right: 0;
@@ -154,6 +154,7 @@ th {
 
 .table-playlist {
   height: 1000px !important;
+  background-color: #181818;
 }
 
 .album-cover-picture {

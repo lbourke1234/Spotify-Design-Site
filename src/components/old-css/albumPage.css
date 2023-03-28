@@ -148,6 +148,7 @@ body {
 /*-------------------------- track list -------------------------*/
 .album-track-list {
   padding-left: 40px;
+  background: #1D1D1D;
 }
 .track-num {
   padding-left: 20px;

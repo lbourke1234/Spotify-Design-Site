@@ -4,7 +4,7 @@ const ArtistJumbotron = () => {
   return (
     <Container fluid className="container-top-with-nav">
       <Row>
-        <Jumbotron>
+        <Jumbotron className='w-100 mt-5'>
           <div className="inner-container-jumbotron">
             <p className="p-tags-different">
               <i className="bi bi-patch-check-fill"></i>

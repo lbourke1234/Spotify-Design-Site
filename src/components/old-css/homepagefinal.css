@@ -85,6 +85,10 @@ body {
 .card-body-section1 {
   background: rgb(29, 29, 29);
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
 }
 .card-body-section2 {
   color: white;
